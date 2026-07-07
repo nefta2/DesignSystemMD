@@ -411,7 +411,7 @@ Implemented from Figma (nodes `4357-1111` "Calendars" and `4524-350` "Calendars 
 |-------|------|------|-------|
 | Default | transparent | `#2B303B` | — |
 | Hover | Atlantis tint `rgba(149,203,35,0.12)` | `#2B303B` | round `36px` target |
-| Selected | Atlantis `#95CB23` (solid round) | `#FFFFFF` | single date or range endpoints |
+| Selected | green→blue gradient `linear-gradient(135deg, #95CB23 → #00AFE2)` (solid round) | `#FFFFFF` | single date or range endpoints (audit 2026-07-07) |
 | In-range | light Atlantis tint | `#2B303B` | days between range endpoints (range mode) |
 | Out-of-month | transparent | muted `#C7CBD3` | leading/trailing days shown from adjacent months |
 | Disabled | transparent | `#C7CBD3` | `not-allowed`, non-selectable |
