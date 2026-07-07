@@ -81,7 +81,9 @@ Used across interactive elements: CTAs, links, inputs, active states.
 
 ## 3. Typography
 
-**Primary typeface: Clash Display.** Set headlines in Bluish Cyan and Lemon Green where appropriate.
+**Primary typeface: Montserrat.** Set headlines in Bluish Cyan and Lemon Green where appropriate.
+
+> **Typeface update (2026-07-07):** the interface typeface was switched from Clash Display to **Montserrat** (variable, weights 100–900), embedded in builds as a variable `@font-face`. Fall back to Inter or a system sans where Montserrat is unavailable.
 
 Weights used: Light, Regular, Medium, SemiBold, Bold, Extrabold.
 - **Bold** — headlines, subheadlines, captions, CTAs
@@ -118,7 +120,7 @@ Format: `size / line-height` in px.
 
 ```css
 :root {
-  --font-family-primary: "Clash Display", sans-serif;
+  --font-family-primary: "Montserrat", sans-serif;
 
   --h1: 700 72px/120% var(--font-family-primary);
   --h2-l: 700 60px/120% var(--font-family-primary);
@@ -189,7 +191,7 @@ Derived from the FLF symbol. Site: https://floridafunders.com
 ### Button
 Implemented from Figma (node `4002-68`). Reusable component in `Button.jsx`.
 
-**Base spec (all sizes):** border-radius `6px`, icon–label gap `8px`, Clash Display `600` (SemiBold), icon `16px`, `1px` border.
+**Base spec (all sizes):** border-radius `6px`, icon–label gap `8px`, Montserrat `600` (SemiBold), icon `16px`, `1px` border.
 
 > **Figma alignment (audit 2026-07-06):** the Figma component set has four axes — **Variant** (`Cyan`/`Atlantis`/`Gradient`/`Black`), **Size** (`xs`/`S`/`M`/`L`), **State** (`Default`/`Hover`/`Disable`), and **Outline** (`Inactive`/`Active`/`Disable`) — with a single `6px` corner radius. There is **no `ghost` value in Figma**: our `ghost` appearance is a deliberate code-only extension. Code size names `sm`/`md`/`lg` map to Figma `S`/`M`/`L`.
 
@@ -227,7 +229,7 @@ Implemented from Figma (node `4002-68`). Reusable component in `Button.jsx`.
 ### Radio
 Implemented from Figma (node `4080-1804`). Reusable `Radio` + `RadioGroup` in `Radio.jsx`.
 
-**Spec:** circle drawn with `1.5px` border, fully rounded. Inner dot = 60% of the circle diameter. Label: Clash Display Medium `16px` / `24px` line-height, letter-spacing `0.3px`, color `#333333`, `8px` gap from the control. Standalone state chips render at `24px`; labelled radios at ~`16–20px`.
+**Spec:** circle drawn with `1.5px` border, fully rounded. Inner dot = 60% of the circle diameter. Label: Montserrat Medium `16px` / `24px` line-height, letter-spacing `0.3px`, color `#333333`, `8px` gap from the control. Standalone state chips render at `24px`; labelled radios at ~`16–20px`.
 
 **Props (`Radio`)**: `checked`, `disabled`, `label`, `name`, `value`, `onChange`, `size`.
 **Props (`RadioGroup`)**: `name`, `value`, `onChange`, `options: [{value, label, disabled?}]`, `direction`, `gap`, `size`.
@@ -247,7 +249,7 @@ Uses a real `<input type="radio">` for accessibility with the visual circle draw
 ### Checkbox
 Implemented from Figma (node `4259-2242`). Reusable `Checkbox` in `Checkbox.jsx`.
 
-**Spec:** box `20px`, border-radius `3px`, `1.5px` border. Checked fills Atlantis 90% with a white checkmark (~75% of box). Label: Clash Display Regular `14px` / `18px` line-height, letter-spacing `0.3px`, color `#131927` (`#9EA2AE` when disabled). Label sits right (gap `8px`) or left (gap `16px`) of the box.
+**Spec:** box `20px`, border-radius `3px`, `1.5px` border. Checked fills Atlantis 90% with a white checkmark (~75% of box). Label: Montserrat Regular `14px` / `18px` line-height, letter-spacing `0.3px`, color `#131927` (`#9EA2AE` when disabled). Label sits right (gap `8px`) or left (gap `16px`) of the box.
 
 **Props**: `checked`, `disabled`, `label`, `textSide` (`left` \| `right`), `name`, `value`, `onChange`, `size`.
 
@@ -282,12 +284,12 @@ Implemented from Figma (node `4090-228`). Reusable `Pagination` + `PaginationIte
 
 Rendered as a `<nav>` of real `<button>`s with `aria-label` / `aria-current` for accessibility.
 
-> Note: the Figma frame set page numbers in Inter; this implementation uses Clash Display to stay consistent with the rest of the FF component set. Swap the item `fontFamily` if Inter is intended.
+> Note: the Figma frame set page numbers in Inter; this implementation uses Montserrat to stay consistent with the rest of the FF component set. Swap the item `fontFamily` if Inter is intended.
 
 ### Dropdown / Select
 Implemented from Figma (node `4093-310`). Reusable `Dropdown` in `Dropdown.jsx`. Supports single and multiple selection.
 
-**Trigger spec:** radius `12px`, `1.5px` border, `12px` padding, `12px` gap; optional `24px` left icon, label (Clash Display Regular `14px` / `18px`), and a chevron that flips when open.
+**Trigger spec:** radius `12px`, `1.5px` border, `12px` padding, `12px` gap; optional `24px` left icon, label (Montserrat Regular `14px` / `18px`), and a chevron that flips when open.
 
 **Menu spec:** white, radius `8px`, `8px` vertical padding, item gap `8px`, shadow `0 6px 14px -6px rgba(19,25,39,0.12), 0 10px 32px -4px rgba(19,25,39,0.1)`. Rows: padding `12px 16px 12px 12px`, `24px` icon + `14/18` label.
 
@@ -316,7 +318,7 @@ Closes on outside-click; trigger carries `aria-haspopup` / `aria-expanded`, menu
 ### Progress Bar
 Implemented from Figma (node `4115-298`). Reusable `ProgressBar` in `ProgressBar.jsx`.
 
-**Spec:** track `8px` tall, radius `8px`. Fill uses the brand gradient `linear-gradient(90deg, #A8F200 0%, #00AFE2 100%)` (Lemon Green → Bluish Cyan), width = `value%`. Optional percentage label (Clash Display Regular `14px` / `18px`, tracking `0.3px`) sits left or right with a `16px` gap.
+**Spec:** track `8px` tall, radius `8px`. Fill uses the brand gradient `linear-gradient(90deg, #A8F200 0%, #00AFE2 100%)` (Lemon Green → Bluish Cyan), width = `value%`. Optional percentage label (Montserrat Regular `14px` / `18px`, tracking `0.3px`) sits left or right with a `16px` gap.
 
 **Props**: `value` (0–100), `showLabel`, `labelPosition` (`left` \| `right`), `disabled`, `height`, `width`.
 
@@ -332,7 +334,7 @@ Rendered with `role="progressbar"` and `aria-valuenow/min/max`; the fill width a
 ### Input / Textarea
 Implemented from Figma (node `4093-1112`, "Define Input Component Variants"). Reusable `Input` + `Textarea` in `Input.jsx`.
 
-**Base spec:** radius `8px`, default border `#D1D5DC`, label Clash Display `14px` / `18px` (`#364153`), placeholder `#99A1AF`, value `#111827`.
+**Base spec:** radius `8px`, default border `#D1D5DC`, label Montserrat `14px` / `18px` (`#364153`), placeholder `#99A1AF`, value `#111827`.
 
 **Interaction states** (node `4813-2843`): hover on a resting field fills light grey `#E7E7E7`; focus/selected shows a `1.5px` Atlantis-green (`#95CB23`, ~`80%`) border + soft green halo; a `required` empty field can surface a `1.5px` danger (`#C54949`) border via `status="error"`. Status inputs halo in their own color. (Focus was aligned to Atlantis green to match Radio/Checkbox/Dropdown — note: the Figma interaction frame `4813-2843` defines `Default/hover/selected/error/data/required/disabled` but **no explicit `focus` state**, so the input focus styling is a deliberate decision carried over from Radio/Checkbox, not sourced from this frame.)
 
@@ -367,7 +369,7 @@ Icons sit at `12px` from the edge (`20px`); left/right padding grows to `40px` w
 ### Message (modal dialog)
 Implemented from Figma (node `4281-675`). Reusable `Message` in `Message.jsx`.
 
-**Spec:** centered card, width `382px`, radius `16px`, shadow `0 25px 50px -12px rgba(0,0,0,0.25)`, padding `40px 31px`, over a `rgba(17,24,39,0.55)` backdrop. Stacked content (`15px` gap): brand logo, title (Clash Display SemiBold `20px`, `#111827`, centered, supports line breaks), a `64×4px` rounded gradient divider (`#4ADE80 → #60A5FA`), body text (Clash Display Regular `14px` / `18px`, `#4B5563`), and a full-width `48px` gradient button (`#A8F200 → #00AFE2`, radius `6px`, black `16px` label). Close (X) button top-right.
+**Spec:** centered card, width `382px`, radius `16px`, shadow `0 25px 50px -12px rgba(0,0,0,0.25)`, padding `40px 31px`, over a `rgba(17,24,39,0.55)` backdrop. Stacked content (`15px` gap): brand logo, title (Montserrat SemiBold `20px`, `#111827`, centered, supports line breaks), a `64×4px` rounded gradient divider (`#4ADE80 → #60A5FA`), body text (Montserrat Regular `14px` / `18px`, `#4B5563`), and a full-width `48px` gradient button (`#A8F200 → #00AFE2`, radius `6px`, black `16px` label). Close (X) button top-right.
 
 **Props**: `open`, `onClose`, `onAction`, `title`, `description`, `actionLabel`, `logo`, `showClose`, `width`. _(Figma defaults: FF wordmark logo, title "Registration completed successfully", body "Your account has been created", action label "Submit".)_
 
@@ -386,7 +388,7 @@ Brand logos are recreated as inline SVG (no hosted-asset dependency); each butto
 ### LogoWall ("Investments Logo")
 Implemented from Figma (node `4116-2656`, "logos"). Reusable `LogoWall` in `LogoWall.jsx`.
 
-**Spec:** section title Clash Display SemiBold `32px` / `40px` (`#434343`) + hairline divider (`#E5E7EB`), followed by a logo grid — default 2 columns (or `auto-fit` responsive), column gap `48px`, row gap `40px`, logos vertically centered and capped at `48px` tall.
+**Spec:** section title Montserrat SemiBold `32px` / `40px` (`#434343`) + hairline divider (`#E5E7EB`), followed by a logo grid — default 2 columns (or `auto-fit` responsive), column gap `48px`, row gap `40px`, logos vertically centered and capped at `48px` tall.
 
 > **Figma note (audit 2026-07-06):** the source frame is not consistent with the `48px` cap — 2ULaundry renders at `52px` and valicyber at `54px`. The component's `maxLogoHeight` (default `48`) enforces the documented cap; leave it on unless the intent is to raise the cap to ~`54px`. (The Figma title also reads "Investmens Logo" — a typo to fix in the file.)
 
@@ -399,7 +401,7 @@ Portfolio-company logos are third-party brand assets, so they're passed as data 
 ### Calendar / Date pickers
 Implemented from Figma (nodes `4357-1111` "Calendars" and `4524-350` "Calendars Input"). Reusable `Calendar`, `DateInput`, and `DateRangePicker` in `Calendar.jsx`.
 
-**Popover spec:** white card, radius `16px`, shadow `0 8px 40px -8px rgba(43,48,59,0.12)`, padding `24px`. Month title Clash Display SemiBold `18px` / `28px` (`#2B303B`), centered above the grid; weekday headers Clash Display Medium `12px` (`#818898`). Prev/next chevrons (`#818898`) flank the title — in the dual-month view they sit at the far left/right of the whole popover, one navigation control moving both months together.
+**Popover spec:** white card, radius `16px`, shadow `0 8px 40px -8px rgba(43,48,59,0.12)`, padding `24px`. Month title Montserrat SemiBold `18px` / `28px` (`#2B303B`), centered above the grid; weekday headers Montserrat Medium `12px` (`#818898`). Prev/next chevrons (`#818898`) flank the title — in the dual-month view they sit at the far left/right of the whole popover, one navigation control moving both months together.
 
 **Grid:** 7 columns, **Sunday-first**. Weekday headers are **Spanish** — `Do Lu Ma Mi Ju Vi Sa` — while **month names render in English** (e.g. `January 2026`, `February 2026`), matching the frames. Day cells are `40px` tall with a `36px` round hit target; day text `14px` (`#2B303B`).
 
@@ -438,7 +440,7 @@ Implemented from Figma (node `4252-877`, "Filters = Offerings"). Reusable `Filte
 ### Tag
 Implemented from Figma (node `4253-224`, "Tags"). Reusable `Tag` in `Tag.jsx` — the selectable chip used inside `FilterPanel`.
 
-**Spec:** radius `12px`. Large `286×36`, small `139×38`. States: default (white, `1px rgba(51,51,51,0.1)` border), hover (`rgba(241,242,244,0.5)` fill), selected (`rgba(130,203,21,0.1)` fill + `1px #82CB15` green border). Text Clash Display `13.3px` / `20px`, `#222`.
+**Spec:** radius `12px`. Large `286×36`, small `139×38`. States: default (white, `1px rgba(51,51,51,0.1)` border), hover (`rgba(241,242,244,0.5)` fill), selected (`rgba(130,203,21,0.1)` fill + `1px #82CB15` green border). Text Montserrat `13.3px` / `20px`, `#222`.
 **Props**: `size` (`large`\|`small`), `selected`, `disabled`, `onClick`, `fullWidth`.
 
 ### Footer
@@ -450,13 +452,13 @@ Implemented from Figma (node `4082-110`, "Footer"). Reusable `Footer` in `Footer
 ### Disclosure (modal)
 Implemented from Figma (node `4283-646`, "Important Disclosure" popup). Reusable `Disclosure` in `Disclosure.jsx`.
 
-**Spec:** centered modal (`439px`, radius `16px`) over a dimmed backdrop. Title Clash Display SemiBold `32px` / `40px` (`#29303D`, centered); a bordered (`#E5E7EB`, radius `8px`) scrollable box (`max-height 382px`) of legal paragraphs (`14px` / `22px`, `#6C757D`); a centered "Go back" link with a left arrow. **No close (X) button** — Go back (plus backdrop-click / Escape) is the only dismiss control.
+**Spec:** centered modal (`439px`, radius `16px`) over a dimmed backdrop. Title Montserrat SemiBold `32px` / `40px` (`#29303D`, centered); a bordered (`#E5E7EB`, radius `8px`) scrollable box (`max-height 382px`) of legal paragraphs (`14px` / `22px`, `#6C757D`); a centered "Go back" link with a left arrow. **No close (X) button** — Go back (plus backdrop-click / Escape) is the only dismiss control.
 **Props**: `open`, `onGoBack`/`onClose`, `title`, `paragraphs`, `width`. Backdrop-click + `Escape` close; `role="dialog"` + `aria-modal`. `DEFAULT_DISCLOSURE` ships the four FF legal paragraphs.
 
 ### Tabs
 Implemented from Figma (nodes `4354-355` "Tabs" and `4550-2475` "Tabs Investments"). Reusable `Tabs` in `Tabs.jsx` — one component covers both.
 
-**Spec:** horizontal `role="tablist"`. Active tab: dark label (Figma binds `Basic-Text/900/70` = `rgba(51,51,51,0.7)`; our code uses `#111827` — reconcile to the Figma token if matching 1:1) + a `4px` green underline (`#13BA74`). Inactive: muted `#6B7280`. Labels Clash Display Medium (`16px` default, `size` prop). Optional per-tab `count` renders a `24px` pill badge — Atlantis `#95CB23` when the tab is active, `#E5E7EB` otherwise (badge text `#374151`, `12px`).
+**Spec:** horizontal `role="tablist"`. Active tab: dark label (Figma binds `Basic-Text/900/70` = `rgba(51,51,51,0.7)`; our code uses `#111827` — reconcile to the Figma token if matching 1:1) + a `4px` green underline (`#13BA74`). Inactive: muted `#6B7280`. Labels Montserrat Medium (`16px` default, `size` prop). Optional per-tab `count` renders a `24px` pill badge — Atlantis `#95CB23` when the tab is active, `#E5E7EB` otherwise (badge text `#374151`, `12px`).
 **Props**: `items: [{value, label, count?}]`, `value`, `onChange`, `size`.
 
 ### SidebarNav
@@ -491,7 +493,7 @@ Horizontal multi-step progress indicator with status badges and connector divide
 Full investment-management screen — search + profile filter + entries selector, status tabs with counts, and a stacked list of investment cards (Figma nodes `4558-1855` Incomplete, `4591-4542` Pending, `4558-2576` card states). In `InvestmentList.jsx`. Status tabs get a `#13BA74` underline + count pills (active `#95CB23`, else `#E5E7EB`); client-side search.
 
 **`InvestmentCard` layout** (audit 2026-07-07): a wide card (white, `1px` border, radius `16px`, padding ~`24px 28px`) laid out as a left **avatar** + a right **main column**. The avatar is an `~88px` circle filled light lemon-green `#C4E76A` with dark initials (`#262626`, `~25px` Bold). The main column has two rows split by a hairline divider (`#E5E7EB`):
-- **Top row** — left: a `Profile:` line (label Bold `#222`, value regular), the offering **title** (Clash Display Bold `24px`, `#111`), an `Account:` line, and a muted underlined **View agreements** link with a document icon (`#6B7280`). Right (right-aligned): the **amount** (Bold `~28px`, `#111`, tabular figures) with **Funded Balance:** beneath it (`14px`, muted).
+- **Top row** — left: a `Profile:` line (label Bold `#222`, value regular), the offering **title** (Montserrat Bold `24px`, `#111`), an `Account:` line, and a muted underlined **View agreements** link with a document icon (`#6B7280`). Right (right-aligned): the **amount** (Bold `~28px`, `#111`, tabular figures) with **Funded Balance:** beneath it (`14px`, muted).
 - **Footer row** — left: `Date:` and `Status:` labels (Bold label + value), the status rendered as a rounded **pill** (Incomplete = amber `#FCEFC7` bg / `#9A6B12` text; Pending = cyan tint; etc.). Right: contextual **action buttons** — `Complete` (solid green `#A4C851`, dark label, check icon) / `Fund Now` (green, plus icon) and `Cancel` (outline **danger** — red border + red text + × icon); other states surface Review Requested / Pending Self Accreditation. Status badge and action set vary per `variant`.
 **Props (`InvestmentList`)**: `initialTab`, `tabs [{key,label,count,disabled}]`, `items`, `profileLabel`. **`InvestmentCard`**: `name`, `account`, `profile`, `initials`, `date`, `status`, `amount`, `fundedBalance`, `variant`, `documentRequested`, `reviewRequested`, `selfAccreditation`, `onComplete`/`onCancel`/`onFundNow`/`onEdit`/`onReview`.
 
@@ -500,7 +502,7 @@ Page-level header — H3 title, muted subtitle, optional "Go Back" link (Figma n
 **Props**: `title`, `subtitle`, `showGoBack`, `goBackLabel`, `onGoBack`.
 
 ### AccountCard
-Selectable bank/account card — circular tinted icon, name + masked account line, default vs selected states (Figma node `4593-5243`). In `AccountCard.jsx`. `446×76`, r8, `2px` border; default `rgba(38,38,38,0.7)` on white; selected `#13BA74` on `#E7F6F1` with a trailing check-circle. 40px icon circle (`rgba(52,178,119,0.1)` bg, `#13BA74` **bank/columns glyph**). Name Clash Display SemiBold ~`13.7px` `#2b303b`; detail Regular `12px` `#6e7d91`, formatted `"<Type> •••• 4821"` (e.g. "Checking •••• 4821"). `aria-pressed`, keyboard-focusable.
+Selectable bank/account card — circular tinted icon, name + masked account line, default vs selected states (Figma node `4593-5243`). In `AccountCard.jsx`. `446×76`, r8, `2px` border; default `rgba(38,38,38,0.7)` on white; selected `#13BA74` on `#E7F6F1` with a trailing check-circle. 40px icon circle (`rgba(52,178,119,0.1)` bg, `#13BA74` **bank/columns glyph**). Name Montserrat SemiBold ~`13.7px` `#2b303b`; detail Regular `12px` `#6e7d91`, formatted `"<Type> •••• 4821"` (e.g. "Checking •••• 4821"). `aria-pressed`, keyboard-focusable.
 **Props**: `name`, `detail`, `selected`, `disabled`, `onClick`, `fullWidth`.
 
 ### Switch
@@ -540,7 +542,7 @@ Collapsible multi-select option card — header + search + Select-All + chip row
 Guidelines for applying the Florida Funders brand to presentations (PowerPoint/Keynote/Slides), letterheads, and reports. All of these draw on the same tokens defined above — colors (§2), typography (§3), and logo rules (§4).
 
 ### Shared foundations
-- **Typeface:** Clash Display throughout. Bold for titles and headings, SemiBold for subheads and callouts, Regular for body copy. Fall back to Inter or a system sans only when Clash Display is unavailable on the recipient's machine.
+- **Typeface:** Montserrat throughout. Bold for titles and headings, SemiBold for subheads and callouts, Regular for body copy. Fall back to Inter or a system sans only when Montserrat is unavailable on the recipient's machine.
 - **Color discipline:** white or very light backgrounds as the default canvas. Use Bluish Cyan `#00AFE2`, Lemon Green `#A8F200`, and Atlantis `#95CB23` as accents — not large fill areas. Reserve the green→cyan gradient (`#A8F200 → #00AFE2`) for a single hero moment per document (cover accent, divider, or one key stat), never as a page-wide background behind text. Body text is `#131927`; secondary text `#6D717F`.
 - **Logo:** follow §4 — clear space, `100px` / `35mm` minimums, one of the four corners or centered on the vertical axis, never rotated, stretched, recolored, or outlined. On dark or photographic backgrounds use the reversed/white logo.
 - **Accent shapes:** the gradient bar (rounded, e.g. `64×4px` scaled to context) is the signature divider — reuse it under titles to tie documents to the product UI.
@@ -548,8 +550,8 @@ Guidelines for applying the Florida Funders brand to presentations (PowerPoint/K
 
 ### Presentations (PowerPoint / Keynote / Google Slides)
 - **Format:** 16:9 widescreen. Keep a consistent master with left/top margins ≈ 5–7% of slide width.
-- **Cover slide:** large Clash Display Bold title (~40–54pt), the FF logo, and a single gradient accent bar or corner mark. "Be bold, be proud, make it big" — the title and logo should dominate.
-- **Section dividers:** short Clash Display SemiBold heading over white, with the gradient bar beneath it.
+- **Cover slide:** large Montserrat Bold title (~40–54pt), the FF logo, and a single gradient accent bar or corner mark. "Be bold, be proud, make it big" — the title and logo should dominate.
+- **Section dividers:** short Montserrat SemiBold heading over white, with the gradient bar beneath it.
 - **Content slides:** one idea per slide. Headings in Atlantis or ink; body in `#131927`. Use the component palette for any embedded UI (buttons, tags, progress bars) so decks match the product.
 - **Charts:** use the data-viz palette — area/line charts in the brand gradient or single accent (cyan/green), donuts using the primary + neutral ramp. Gridlines `#E5E7EB`, axis/labels `#818898`. Avoid rainbow series; group by category with 2–3 colors max.
 - **Footer:** slide number + "Florida Funders" wordmark or small mark, muted `#6D717F`, on every content slide.
@@ -557,15 +559,15 @@ Guidelines for applying the Florida Funders brand to presentations (PowerPoint/K
 
 ### Letterheads
 - **Header:** FF logo top-left (or centered) with full clear space; optional thin gradient rule or `1px #E5E7EB` divider beneath the header band.
-- **Type:** recipient/date/body in Clash Display Regular `11–12pt`, `1.4–1.5` line spacing, `#131927`. Sender name/title in SemiBold.
+- **Type:** recipient/date/body in Montserrat Regular `11–12pt`, `1.4–1.5` line spacing, `#131927`. Sender name/title in SemiBold.
 - **Margins:** ~1" (25mm) all sides; keep the body within the logo's clear-space envelope.
 - **Footer:** company legal name, address, website (`floridafunders.com`), and contact in `9–10pt` muted `#6D717F`, optionally separated by a hairline rule. Keep it single-line or two-line and unobtrusive.
 - **Color:** monochrome body; a single Atlantis or gradient accent (header rule or a small corner mark) only. No colored text in the body.
 
 ### Reports
-- **Cover:** report title in Clash Display Bold, subtitle/date in SemiBold, FF logo, and one gradient accent element. Optional full-bleed brand photo with the reversed logo.
+- **Cover:** report title in Montserrat Bold, subtitle/date in SemiBold, FF logo, and one gradient accent element. Optional full-bleed brand photo with the reversed logo.
 - **Headings:** H1 Bold, H2 SemiBold, H3 SemiBold — mirror the type scale in §3 (H1 72 / H2 48 / H3 32, scaled down for print, e.g. 24 / 18 / 14pt). Accent headings in Atlantis where emphasis helps; keep most in ink.
-- **Body:** Clash Display Regular `10–11pt`, `1.5` line spacing, `#131927`, ragged-right, generous margins. Prose in paragraphs — reserve bullet lists for genuine enumerations.
+- **Body:** Montserrat Regular `10–11pt`, `1.5` line spacing, `#131927`, ragged-right, generous margins. Prose in paragraphs — reserve bullet lists for genuine enumerations.
 - **Tables:** header row `#F9FAFA` fill with `#333333` text; body rows white; hairline borders `rgba(209,209,209,0.4)`; numeric columns right-aligned. Highlight key figures in Atlantis or with a status color, sparingly.
 - **Data & callouts:** stat callouts can use one gradient or Atlantis accent; charts follow the presentation chart rules above.
 - **Page furniture:** running header (report title, muted) and footer (page number + "Florida Funders", muted `#6D717F`) with a `1px #E5E7EB` divider. Consistent page margins throughout.
